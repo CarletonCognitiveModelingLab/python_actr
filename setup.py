@@ -1,9 +1,11 @@
 from setuptools import setup
 
+import python_actr
+
 setup(
     name='python_actr',
     packages=['python_actr'],
-    version='1.9.0',
+    version=python_actr.version.version,
     author='Carleton Cognitive Modelling Lab',
     description='Python implementation of the ACT-R cognitive architecture',
     url='https://github.com/CarletonCognitiveModelingLab/python_actr',
