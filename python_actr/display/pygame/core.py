@@ -1,6 +1,6 @@
 import pygame
 import time
-from ccm.display.pygame import render
+from python_actr.display.pygame import render
 
 class PygameDisplay:
     def __init__(self,obj,width=640,height=480,full=False,title='CCMSuite3',background='#CCCCCC'):
