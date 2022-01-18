@@ -1,6 +1,6 @@
 
 import python_actr
-import collections
+import typing
 
 class ACTR(python_actr.ProductionSystem):
     production_time_sd=None
@@ -26,7 +26,7 @@ class ACTR(python_actr.ProductionSystem):
                 a=max(activations)
                 
                 threshold=self.production_threshold
-                if isinstance(threshold, collections.Callable): threshold=threshold()
+                if isinstance(threshold, typing.Callable): threshold=threshold()
                 
                 if threshold is not None and a<threshold:
                     for a in self._adaptors: a.below_threshold()
@@ -40,7 +40,7 @@ class ACTR(python_actr.ProductionSystem):
                 self.log.production=choice.name
                 
                 t=self.production_time
-                if isinstance(t, collections.Callable): t=t()
+                if isinstance(t, typing.Callable): t=t()
                 if self.production_time_sd is not None:
                     t=t+self.random.gauss(0,self.production_time_sd)
                 t-=self.production_match_delay

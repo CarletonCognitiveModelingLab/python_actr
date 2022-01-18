@@ -1,5 +1,5 @@
 import re
-import collections
+import typing
 
 class PatternException(Exception):
     pass
@@ -91,7 +91,7 @@ def parse(patterns,bound=None):
             if p is None:
                 if name is None: funcs.append(lambda x,b: x==None)
                 else:            funcs.append(lambda x,b,name=name: x[name]==None or len(x[name])==0)
-            elif isinstance(p, collections.Callable):
+            elif isinstance(p, typing.Callable):
                 if name is None:
                   def callfunc(x,b,name=name,p=p):
                     return p(x,b)
