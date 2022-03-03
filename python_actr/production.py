@@ -1,9 +1,9 @@
 
-
-from . import model
-import inspect
+#as11
+import actr.model
+import actr.inspect
 import re
-from . import pattern
+import actr.pattern
 
 try:
     Set=set
