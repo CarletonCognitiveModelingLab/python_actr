@@ -1,10 +1,12 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 import python_actr
 
+exclude = ['python_actr.tests', 'python_actr.experimental']
+
 setup(
     name='python_actr',
-    packages=['python_actr', 'python_actr.display', 'python_actr.actr', 'python_actr.ui'],
+    packages=find_packages(exclude=exclude),
     version=python_actr.version.version,
     author='Carleton Cognitive Modelling Lab',
     description='Python implementation of the ACT-R cognitive architecture',
