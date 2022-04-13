@@ -1,8 +1,5 @@
 
-try:
-    import heapq
-except ImportError:
-    import ccm.legacy.heapq as heapq
+import heapq
 import copy
 
 from . import logger
