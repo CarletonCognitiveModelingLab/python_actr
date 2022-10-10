@@ -8,3 +8,5 @@ pip install python_actr
 ```
 
 For details, visit the wiki page: https://github.com/CarletonCognitiveModelingLab/python_actr/wiki/PythonACTRTutorials
+
+To join CCMLab organization for contributing online, visit: https://github.com/asoorg 
