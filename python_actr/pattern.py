@@ -119,8 +119,18 @@ def parse(patterns,bound=None):
                         namedSlots=True          
                     else:
                         if namedSlots!=False:
-                            raise PatternException("Found unnamed slot '%s' after named slot in pattern '%s'"%(text,pattern))
-                    if text=='?': continue
+                            raise PatternException("Found unnamed slot '%s' after named slot in pattern '%s'"%(text,pattern))  
+                    #
+                    # fixes the problem with matching to ?
+                    # condition: wildcard value that doesn't assign a name (i.e. pattern 'chunkname:?' or just '?')
+                    if text == '?':
+                        # returns true if *either* x (the chunk, a UserDict) contains a key (slot name) that matches the
+                        # name (key) of the wildcarded slot in our pattern (if there is no name, the slot is numbered,
+                        # and key is the corresponding number)
+                        funcs.append(lambda x, b, key=key: key in x.keys())
+                        continue
+                    #
+                    #
                     while len(text)>0:
                         m=re.match('([\w\.-]+)',text)
                         #print("2m", m)#sterling
