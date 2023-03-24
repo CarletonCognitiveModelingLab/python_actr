@@ -4,6 +4,7 @@ import python_actr
 
 setup(
     name='python_actr',
+    python_requires='>=3.0,<3.11',
     packages=['python_actr', 'python_actr.display', 'python_actr.actr', 'python_actr.ui'],
     version=python_actr.version.version,
     author='Carleton Cognitive Modelling Lab',
