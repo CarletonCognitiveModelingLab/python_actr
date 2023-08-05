@@ -18,15 +18,15 @@ class Production:
         self.system=system
         self.name=name
         self.base_utility=0
-        a,va,hk,d=inspect.getargspec(func)
-        self.keys=a
+        spec = inspect.getfullargspec(func)
+        self.keys = spec.args
         patterns={}
-        for i,name in enumerate(a[:]):
+        for i,name in enumerate(spec.args[:]):
           if name=='utility': 
-            self.base_utility=d[i]
-            del a[i]
+            self.base_utility = spec.defaults[i]
+            del spec.args[i]
           else:
-            patterns[name]=d[i]
+            patterns[name] = spec.defaults[i]
         self.pattern_specs=patterns
         self.pattern=pattern.Pattern(patterns)
         self.bound=None
@@ -58,12 +58,12 @@ class ProductionSystem(model.Model):
         self._initializers=[]
         self._keys_used=Set()
         for k,v in list(methods.items()):
-            a,va,hk,d=inspect.getargspec(v)
-            if va is None and hk is None:
-              if d is None and len(a)==0:
+            spec = inspect.getfullargspec(v)
+            if spec.varargs is None and spec.varkw is None:
+              if spec.defaults is None and len(spec.args) == 0:
                 p=Production(self,k,v)
                 self._initializers.append(p)
-              if d is not None and a is not None and len(a)==len(d):
+              if spec.defaults is not None and spec.args is not None and len(spec.args) == len(spec.defaults):
                 p=Production(self,k,v)
                 self._keys_used.update(p.keys)
                 self._productions.append(p)
