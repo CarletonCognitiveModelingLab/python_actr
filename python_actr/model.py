@@ -40,7 +40,18 @@ def log_everything(model,log=None):
       
       if isinstance(v,Model) and v.parent is model:
         log_everything(v,getattr(log,k))
-
+class Celsci:
+    celscilist = {
+    'dd':{'x':{'followers': 400}},
+    'jp':{'x':{'followers': 300}},
+    'sh':{'x':{'followers': 200}},
+    'gs':{'x':{'followers': 100}}
+    }
+    def fame(x):
+        y="low"
+        if x>300:
+            y= 'high'
+        return y
 
 class Model:
     __converted=False
