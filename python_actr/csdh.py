@@ -28,10 +28,10 @@ class Celsci:
         return y
  
 def checkfame(x):
-    person = celsci.fame(celsci.celscilist[x]['x']['followers'])
+    person = Celsci.fame(Celsci.celscilist[x]['x']['followers'])
     return person
     
-for person in celsci.celscilist:
+for person in Celsci.celscilist:
     #dh=ic(person,checkfame(person))
     print(person,checkfame(person))
         
