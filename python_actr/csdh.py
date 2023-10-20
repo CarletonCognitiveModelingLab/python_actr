@@ -13,7 +13,7 @@
 #    #self.stop() # stop the agent
     
 
-class celsci():
+class Celsci:
     celscilist = {
     'dd':{'x':{'followers': 400}},
     'jp':{'x':{'followers': 300}},
