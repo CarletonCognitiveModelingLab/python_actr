@@ -41,13 +41,13 @@ def log_everything(model,log=None):
       if isinstance(v,Model) and v.parent is model:
         log_everything(v,getattr(log,k))
 class Celsci:
-    celscilist = {
+    celscilist1 = {
     'dd':{'x':{'followers': 400}},
     'jp':{'x':{'followers': 300}},
     'sh':{'x':{'followers': 200}},
     'gs':{'x':{'followers': 100}}
     }
-    def fame(x):
+    def fame1(x):
         y="low"
         if x>300:
             y= 'high'
@@ -59,6 +59,12 @@ class Model:
     _auto_run_start=True
     name='top'
     
+    celscilist = {
+    'dd':{'x':{'followers': 400}},
+    'jp':{'x':{'followers': 300}},
+    'sh':{'x':{'followers': 200}},
+    'gs':{'x':{'followers': 100}}
+    }
 
 
     def __init__(self,log=None,**keys):
@@ -67,7 +73,13 @@ class Model:
         self.__init_log=log
         for k,v in list(keys.items()):
           setattr(self,k,v)
-
+          
+    def fame(x):
+        y="low"
+        if x>300:
+            y= 'high'
+        return y
+      
     #getitem added by sterling
     def __getitem__(self,item):
         return getattr(self,item)
