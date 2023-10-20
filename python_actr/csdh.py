@@ -12,15 +12,14 @@
 #  #def stop_production(goal="stop"):
 #    #self.stop() # stop the agent
     
-celscilist = {
-'dd':{'x':{'followers': 400}},
-'jp':{'x':{'followers': 300}},
-'sh':{'x':{'followers': 200}},
-'gs':{'x':{'followers': 100}}
-}
 
 class celsci():
-
+    celscilist = {
+    'dd':{'x':{'followers': 400}},
+    'jp':{'x':{'followers': 300}},
+    'sh':{'x':{'followers': 200}},
+    'gs':{'x':{'followers': 100}}
+    }
     def fame(x):
         y="low"
         if x>300:
