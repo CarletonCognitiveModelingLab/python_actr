@@ -57,7 +57,7 @@ class Model:
     __converted=False
     _convert_methods=True
     _auto_run_start=True
-    name='top'
+    name='top2'
     
     celscilist = {
     'dd':{'x':{'followers': 400}},
