@@ -48,7 +48,7 @@ celscilist = {
 }
 
 class celsci():
-
+    ax11="ax22"
     def fame(x):
         y="low"
         if x>300:
