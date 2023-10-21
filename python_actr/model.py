@@ -47,7 +47,7 @@ celscilist = {
 'gs':{'x':{'followers': 100}}
 }
 
-class celsci():
+class celsci:
     ax11="ax22"
     def fame(x):
         y="low"
