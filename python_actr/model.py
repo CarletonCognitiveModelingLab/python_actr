@@ -40,12 +40,34 @@ def log_everything(model,log=None):
       
       if isinstance(v,Model) and v.parent is model:
         log_everything(v,getattr(log,k))
+celscilist = {
+'dd':{'x':{'followers': 700}},
+'jp':{'x':{'followers': 300}},
+'sh':{'x':{'followers': 200}},
+'gs':{'x':{'followers': 100}}
+}
 
+class celsci():
+
+    def fame(x):
+        y="low"
+        if x>300:
+            y= 'high'
+        return y
+ 
+def checkfame(x):
+    person = celsci.fame(celscilist[x]['x']['followers'])
+    return person
+    
+for person in celscilist:
+    #dh=ic(person,checkfame(person))
+    print(person,checkfame(person))
+      
 class Model:
     __converted=False
     _convert_methods=True
     _auto_run_start=True
-    name='top'
+    name='top1'
 
     def __init__(self,log=None,**keys):
         #print("this happens")
@@ -54,6 +76,7 @@ class Model:
         for k,v in list(keys.items()):
           setattr(self,k,v)
           
+
 
       
     #getitem added by sterling
