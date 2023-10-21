@@ -67,7 +67,7 @@ class Model:
     __converted=False
     _convert_methods=True
     _auto_run_start=True
-    name='top1'
+    name='top3'
 
     def __init__(self,log=None,**keys):
         #print("this happens")
