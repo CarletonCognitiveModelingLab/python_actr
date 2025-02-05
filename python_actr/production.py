@@ -59,7 +59,7 @@ class ProductionSystem(model.Model):
         self._initializers=[]
         self._keys_used=Set()
         for k,v in list(methods.items()):
-            a,va,hk,dd,kwa,kwd,ant=inspect.getfullargspec(v)
+            a,va,hk,d,kwa,kwd,ant=inspect.getfullargspec(v)
             if va is None and hk is None:
               if d is None and len(a)==0:
                 p=Production(self,k,v)
