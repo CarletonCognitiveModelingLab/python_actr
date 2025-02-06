@@ -13,12 +13,13 @@ except:
 class ProductionException(Exception):
     pass
 
+
 class Production:
     def __init__(self,system,name,func):
         self.system=system
         self.name=name
         self.base_utility=0
-        a,va,hk,d=inspect.getargspec(func)
+        a,va,hk,d,kwa,kwd,ant =inspect.getfullargspec(func)
         self.keys=a
         patterns={}
         for i,name in enumerate(a[:]):
@@ -58,7 +59,7 @@ class ProductionSystem(model.Model):
         self._initializers=[]
         self._keys_used=Set()
         for k,v in list(methods.items()):
-            a,va,hk,d=inspect.getargspec(v)
+            a,va,hk,d,kwa,kwd,ant=inspect.getfullargspec(v)
             if va is None and hk is None:
               if d is None and len(a)==0:
                 p=Production(self,k,v)
