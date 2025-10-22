@@ -67,7 +67,7 @@ class PMPGC(ProceduralSubModule):
     g=self.goal
     return p*g-c
   def set(self,prod,successes=None,failures=None,time=None,lock=None):
-    if not isinstance(prod,Production):
+    if not isinstance(prod,python_actr.Production):
         prod=self.parent._productions[prod]
     if successes is not None: prod.successes=successes
     if failures is not None: prod.failures=failures
