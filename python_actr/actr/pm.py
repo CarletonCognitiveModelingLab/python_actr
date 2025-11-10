@@ -1,6 +1,6 @@
 import python_actr
 import math
-import collections
+import typing
 
 __all__=['ProceduralSubModule','PMNoise','PMPGC',
          'PMPGCSuccessWeighted','PMPGCMixedWeighted',
@@ -45,7 +45,7 @@ class PMPGC(ProceduralSubModule):
     prod.successes=1
     prod.failures=0
     prod.time=self.parent.production_time
-    if isinstance(prod.time, collections.Callable): prod.time=prod.time()
+    if isinstance(prod.time, typing.Callable): prod.time=prod.time()
     prod.lock_pgc=False
   def selecting(self,prod):
     if self._clearFlag:
